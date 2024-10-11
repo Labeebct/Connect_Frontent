@@ -20,7 +20,7 @@ const Sidebar = () => {
         isNavOpen ? "w-[250px] absolute z-50" : "w-[60px]"
       } overflow-hidden transition-all min-w-[60px] shadow-sm ease-linear duration-200 border bg-slate-200`}
     >
-      <div className="flex justify-between  w-full h-[120px] overflow-hidden">
+      <div className="flex justify-between -translate-y-8 w-full h-[120px] overflow-hidden">
         <img
           src="../../src/assets/Connect PNG.png"
           alt="connect logo"
