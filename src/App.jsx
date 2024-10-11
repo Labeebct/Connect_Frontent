@@ -1,9 +1,6 @@
-import React from 'react'
+import React from "react";
+import DashBoard from "./pages/DashBoard";
 
-const App = () => {
-  return (
-    <div>App</div>
-  )
-}
+const App = () => <DashBoard />;
 
-export default App
+export default App;
