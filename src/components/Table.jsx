@@ -1,28 +1,42 @@
 import React, { useEffect, useState } from "react";
-import FileDownloadIcon from '@mui/icons-material/FileDownload';
+import FileDownloadIcon from "@mui/icons-material/FileDownload";
+import Loading from "./Loading";
 
 const Table = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [userDatas, setUserDatas] = useState([]); //State for keeping userDatas
 
-  useEffect(() => { 
+  useEffect(() => {
     const fetchUserDatas = () => {
       fetch("https://jsonplaceholder.typicode.com/users") //Fetching userdatas from jsonplaceholder
-        .then((response) => response.json())
-        .then((json) => setUserDatas(json)); //Keeping data in a state
+        .then((response) => {
+          setIsLoading(true);
+          return response.json();
+        })
+        .then((json) => {
+          setUserDatas(json); //Keeping data in a state
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          console.error("There was an error fetching the user data:", error); //Handling error
+          setIsLoading(false); //Handling error
+        });
     };
     fetchUserDatas();
   }, []);
 
+  if (isLoading) return <Loading />;
+
   return (
-    <div className="px-4 w-[70%] h-full ">
+    <div className="px-6 w-[70%] h-full ">
       <div className="w-full h-auto items-center flex justify-between px-1">
         <h3 className="font-inter my-4">Users List</h3>
-        <FileDownloadIcon
+        <FileDownloadIcon // Button to export pdf
           sx={{ fontSize: 20 }}
-          className="opacity-80 cursor-pointer"
+          className="opacity-80 duration-100 transition-all ease-in-out active:scale-[.95] cursor-pointer"
         />
       </div>
-      <div className="w-full  h-[400px] pb-2 border-b border-[#aeaeae53] shadow-sm overflow-auto">
+      <div className="w-full  h-[430px] pb-2 border-b border-[#aeaeae53] shadow-sm overflow-auto">
         <table className="w-full h-auto border">
           <thead className="sticky">
             <tr>
@@ -44,15 +58,30 @@ const Table = () => {
             </tr>
           </thead>
           <tbody>
-            {userDatas.map((data,index) => ( //Looping user datas in a table
-              <tr key={index} className="border">
-                <td className="font-medium text-[.68rem] text-black p-3 border">{data.id}</td>
-                <td className="font-medium text-[.68rem] text-black p-3 border">{data.name}</td>
-                <td className="font-medium text-[.68rem] text-black p-3 border">{data.email}</td>
-                <td className="font-medium text-[.68rem] text-black p-3 border">{data.phone}</td>
-                <td className="font-medium text-[.68rem] text-black p-3 border">{data?.company?.name}</td>
-              </tr>
-            ))}
+            {userDatas.slice(0, 9).map(
+              (
+                data,
+                index //Looping user datas in a table
+              ) => (
+                <tr key={index} className="border">
+                  <td className="font-medium text-[.68rem] text-black p-3 border">
+                    {data.id}
+                  </td>
+                  <td className="font-medium text-[.68rem] text-black p-3 border">
+                    {data.name}
+                  </td>
+                  <td className="font-medium text-[.68rem] text-black p-3 border">
+                    {data.email}
+                  </td>
+                  <td className="font-medium text-[.68rem] text-black p-3 border">
+                    {data.phone}
+                  </td>
+                  <td className="font-medium text-[.68rem] text-black p-3 border">
+                    {data?.company?.name}
+                  </td>
+                </tr>
+              )
+            )}
           </tbody>
         </table>
       </div>

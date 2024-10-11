@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import Whether from "../components/Whether";
 import Table from "../components/Table";
 import Chart from "../components/Chart";
+import Loading from "../components/Loading";
 
 const DashBoard = () => {
+
   return (
     <div className="flex w-full h-screen relative">
       <Sidebar />
