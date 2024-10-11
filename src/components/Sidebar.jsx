@@ -12,13 +12,13 @@ import ContactsIcon from "@mui/icons-material/Contacts";
 import MenuIcon from "@mui/icons-material/Menu";
 
 const Sidebar = () => {
-  const [isNavOpen, setNavOpen] = useState(true);
+  const [isNavOpen, setNavOpen] = useState(false);
 
   return (
     <div
       className={`h-full ${
-        isNavOpen ? "w-[250px]" : "w-[60px]"
-      } overflow-hidden transition-all ease-linear duration-200 border bg-slate-200`}
+        isNavOpen ? "w-[250px] absolute z-50" : "w-[60px]"
+      } overflow-hidden transition-all min-w-[60px] shadow-sm ease-linear duration-200 border bg-slate-200`}
     >
       <div className="flex justify-between  w-full h-[120px] overflow-hidden">
         <img
