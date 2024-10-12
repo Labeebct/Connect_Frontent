@@ -5,7 +5,7 @@ import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import { SyncLoader } from "react-spinners";
 
 const Table = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [userDatas, setUserDatas] = useState([]); //State for keeping userDatas
   const tableRef = useRef(null);
 
@@ -13,7 +13,6 @@ const Table = () => {
     const fetchUserDatas = () => {
       fetch("https://jsonplaceholder.typicode.com/users") //Fetching userdatas from jsonplaceholder
         .then((response) => {
-          setIsLoading(true);
           return response.json();
         })
         .then((json) => {
@@ -59,7 +58,7 @@ const Table = () => {
       </div>
       <div
         ref={tableRef}
-        className="w-full relative  h-[430px] pb-2 border border-[#aeaeae53] shadow-sm overflow-auto"
+        className="w-full relative min-h-[430px]  h-auto pb-2 border border-[#aeaeae53] shadow-sm overflow-auto"
       >
         <table className="w-full h-auto">
           <thead className="sticky">

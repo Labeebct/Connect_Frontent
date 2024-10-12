@@ -9,6 +9,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import PlaceIcon from '@mui/icons-material/Place';
 import { PuffLoader } from "react-spinners";
 
 // Helper function to convert Kelvin to Celsius
@@ -32,8 +33,8 @@ const WeatherChart = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const API_KEY = "39d019aa3f6599184c3ae63b9a31ce4e";
-  const CITY_NAME = "Kondotty,in"; // Change to your city
+  const API_KEY = import.meta.env.VITE_API_KEY;
+  const CITY_NAME = import.meta.env.VITE_CITY_NAME;
 
   useEffect(() => {
     const fetchWeatherData = async () => {
@@ -73,7 +74,7 @@ const WeatherChart = () => {
     );
 
   return (
-    <div style={{ width: '100%', height: '100%' }}>
+    <div style={{ width: "100%", height: "100%" }}>
       <ResponsiveContainer width="100%" height={400}>
         <BarChart data={weatherData}>
           <XAxis dataKey="date" tick={{ fontSize: 12 }} />
@@ -89,7 +90,12 @@ const WeatherChart = () => {
           <Bar dataKey="humidity" fill="#82ca9d" barSize={20} />
         </BarChart>
       </ResponsiveContainer>
-      <p className="font-medium font-poppins opacity-70 text-center text-[.8rem]">Kondotty, In</p>
+      <div className="flex items-center gap-1 justify-center">
+      <PlaceIcon sx={{fontSize:16}} className="opacity-80" />
+      <p className="font-medium font-poppins opacity-70 text-center text-[.8rem]">
+        Kondotty, In
+      </p>
+      </div>
     </div>
   );
 };
