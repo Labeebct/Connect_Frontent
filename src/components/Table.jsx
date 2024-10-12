@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
-import Loading from "./Loading";
+import { SyncLoader } from "react-spinners";
 
 const Table = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -32,7 +32,7 @@ const Table = () => {
     try {
       const pdf = new jsPDF("p", "mm", "a4");
       pdf.setFontSize(20);
-      pdf.text("Users List", 105, 20, { align: "center"});
+      pdf.text("Users List", 105, 20, { align: "center" });
 
       const canvas = await html2canvas(tableRef.current);
       const imgData = canvas.toDataURL("image/png");
@@ -47,10 +47,8 @@ const Table = () => {
     }
   };
 
-  if (isLoading) return <Loading />;
-
   return (
-    <div className="px-6 w-[70%] h-full ">
+    <div className=" pl-6 w-full h-full flex-1">
       <div className="w-full h-auto items-center flex justify-between px-1">
         <h3 className="font-inter my-4">Users List</h3>
         <FileDownloadIcon // Button to export pdf
@@ -61,9 +59,9 @@ const Table = () => {
       </div>
       <div
         ref={tableRef}
-        className="w-full  h-[430px] pb-2 border-b border-[#aeaeae53] shadow-sm overflow-auto"
+        className="w-full relative  h-[430px] pb-2 border border-[#aeaeae53] shadow-sm overflow-auto"
       >
-        <table className="w-full h-auto border">
+        <table className="w-full h-auto">
           <thead className="sticky">
             <tr>
               <th className="opacity-85 font-medium whitespace-nowrap w-[.8rem] h-auto text-gray-700 bg-slate-200 text-[.75rem] p-2 border">
@@ -83,32 +81,36 @@ const Table = () => {
               </th>
             </tr>
           </thead>
-          <tbody>
-            {userDatas.slice(0, 9).map(
-              (
-                data,
-                index //Looping user datas in a table
-              ) => (
-                <tr key={index} className="border">
-                  <td className="font-medium text-[.7rem] text-black p-3 border">
-                    {data.id}
-                  </td>
-                  <td className="font-medium text-[.7rem] text-black p-3 border">
-                    {data.name}
-                  </td>
-                  <td className="font-medium text-[.7rem] text-black p-3 border">
-                    {data.email}
-                  </td>
-                  <td className="font-medium text-[.7rem] text-black p-3 border">
-                    {data.phone}
-                  </td>
-                  <td className="font-medium text-[.7rem] text-black p-3 border">
-                    {data?.company?.name}
-                  </td>
-                </tr>
-              )
-            )}
-          </tbody>
+          {isLoading ? (
+             <SyncLoader className="mb-16 absolute top-[190px] opacity-70 left-[300px]" />
+          ) : (
+            <tbody>
+              {userDatas.slice(0, 9).map(
+                (
+                  data,
+                  index //Looping user datas in a table
+                ) => (
+                  <tr key={index} className="border">
+                    <td className="font-medium text-[.7rem] text-black p-3 border">
+                      {data.id}
+                    </td>
+                    <td className="font-medium text-[.7rem] text-black p-3 border">
+                      {data.name}
+                    </td>
+                    <td className="font-medium text-[.7rem] text-black p-3 border">
+                      {data.email}
+                    </td>
+                    <td className="font-medium text-[.7rem] text-black p-3 border">
+                      {data.phone}
+                    </td>
+                    <td className="font-medium text-[.7rem] text-black p-3 border">
+                      {data?.company?.name}
+                    </td>
+                  </tr>
+                )
+              )}
+            </tbody>
+          )}
         </table>
       </div>
     </div>

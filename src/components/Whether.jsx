@@ -2,7 +2,7 @@ import React from 'react'
 
 const Whether = () => {
   return (
-    <div className='w-full h-[200px] border'>Whether</div>
+    <div className='w-full h-[190px] border'>Whether</div>
   )
 }
 

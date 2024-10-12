@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar";
 
 const Header = () => {
   return (
-    <div className="flex justify-between pr-10 items-center w-full h-[60px] shadow-sm bg-slate-200">
+    <div className="flex sticky top-0 left-0 right-0 z-50 justify-between pr-10 items-center w-full h-[60px] shadow-sm bg-slate-200">
       <div>
       <img
           src="../../src/assets/Connect PNG.png"
