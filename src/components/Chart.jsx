@@ -28,7 +28,7 @@ const Chart = () => {
   };
 
   return (
-    <div className="flex-1 h-full pr-2">
+    <div className="flex-1 shadow-box rounded-md bg-white h-full w-full">
       <div className="w-full h-auto items-center flex justify-between px-4 ">
         <h3 className="font-inter my-4">Weather Chart</h3>
         <FileDownloadIcon
@@ -39,7 +39,7 @@ const Chart = () => {
       </div>
       <div
         ref={chartRef}
-        className="flex justify-center items-center md:min-w-[500px]  h-auto min-h-[430px] p-2 shadow-sm overflow-hidden"
+        className="flex justify-center items-center h-auto min-h-[410px] max-h-[430px] p-2 shadow-sm overflow-hidden"
       >
         <WeatherChart />
       </div>
