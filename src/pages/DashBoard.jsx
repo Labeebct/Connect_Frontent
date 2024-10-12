@@ -4,7 +4,6 @@ import Header from "../components/Header";
 import Whether from "../components/Whether";
 import Table from "../components/Table";
 import Chart from "../components/Chart";
-import Loading from "../components/Loading";
 
 const DashBoard = () => {
 

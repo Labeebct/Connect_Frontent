@@ -1,6 +1,16 @@
-import React from "react";
-import DashBoard from "./pages/DashBoard";
+import React, { Suspense, lazy } from "react";
+import Loading from "./components/Loading"; // Fallback component
 
-const App = () => <DashBoard />;
+const DashBoard = lazy(() => import("./pages/DashBoard"));
+
+const App = () => {
+  return (
+    <div>
+      <Suspense fallback={<Loading />}>
+        <DashBoard />
+      </Suspense>
+    </div>
+  );
+};
 
 export default App;

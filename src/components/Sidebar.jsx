@@ -17,8 +17,8 @@ const Sidebar = () => {
   return (
     <div
       className={`h-full ${
-        isNavOpen ? "w-[250px] absolute z-50" : "w-[60px]"
-      } overflow-hidden transition-all min-w-[60px] shadow-sm ease-linear duration-200 border bg-slate-200`}
+        isNavOpen ? "w-[250px]" : "w-[60px]"
+      } overflow-hidden absolute z-50 transition-all min-w-[60px] shadow-sm ease-linear duration-200 border bg-slate-200`}
     >
       <div className="flex justify-between -translate-y-8 w-full h-[120px] overflow-hidden">
         <img
