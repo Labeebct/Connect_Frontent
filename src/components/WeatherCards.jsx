@@ -1,6 +1,7 @@
 import React from "react";
 
 const WeatherCards = ({ data, index }) => {
+  
   const getDayName = (dateStr) => {
     const date = new Date(dateStr);
     const options = { weekday: "long" };
@@ -21,7 +22,7 @@ const WeatherCards = ({ data, index }) => {
     >
       <img
         src={iconURL}
-        className="w-14 absolute text-red-500 bg-[#3db0c9] rounded-full -top-1"
+        className="w-14 absolute text-red-500 bg-[#3db0c9] rounded-full -top-2"
         alt="Weather Icon"
       />
       <h1 className="font-bold mt-8 font-inter relative text-[1.8rem]">

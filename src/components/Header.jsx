@@ -8,7 +8,7 @@ const Header = () => {
     <div className="flex sticky top-0 left-0 right-0 z-50 justify-between pr-10 items-center w-full h-[50px] bg-white border border-b shadow-sm ">
       <div>
       <img
-          src="../../src/assets/Connect PNG.png"
+          src="/assets/Connect PNG.png"
           alt="connect logo"
           className={`h-32 min-w-32`}
         />
@@ -31,7 +31,7 @@ const Header = () => {
         </li>
         <li className="flex justify-center items-center gap-2">
           <img
-            src="../../src/assets/labio.jpg"
+            src="/assets/labio.jpg"
             className="min-w-6 h-6 outline outline-2 outline-green-600 bg-red-200 rounded-full"
             alt=""
           />

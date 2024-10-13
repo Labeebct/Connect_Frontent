@@ -28,7 +28,7 @@ const Chart = () => {
   };
 
   return (
-    <div className="flex-1 shadow-box rounded-md bg-white h-full w-full">
+    <div className="flex-1 shadow-box rounded-sm bg-white h-full w-full">
       <div className="w-full h-auto items-center flex justify-between px-4 ">
         <h3 className="font-inter my-4">Weather Chart</h3>
         <FileDownloadIcon

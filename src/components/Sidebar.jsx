@@ -22,7 +22,7 @@ const Sidebar = () => {
     >
       <div className="flex justify-between -translate-y-8 w-full h-[120px] overflow-hidden">
         <img
-          src="../../src/assets/Connect PNG.png"
+          src="/assets/Connect PNG.png"
           alt="connect logo"
           className={`h-44 w-44 ${!isNavOpen && 'hidden' } -translate-y-5`}
         />
@@ -33,7 +33,7 @@ const Sidebar = () => {
       </div>
       <div className="w-full h-[calc(100vh-120px)] flex flex-col justify-between">
         <ul className="pl-2 flex flex-col gap-1 overflow-hidden">
-          <li className="p-4 flex items-center font-inter text-[.9rem] text-black hover:bg-gray-200 hover:text-black bg-gray-200 cursor-pointer rounded-tl-lg rounded-bl-lg transition-all duration-300 ease-out gap-4">
+          <li className="p-4 flex items-center font-inter text-[.9rem] text-black hover:bg-gray-200 hover:text-black bg-[#f2f1f1] cursor-pointer rounded-tl-lg rounded-bl-lg transition-all duration-300 ease-out gap-4">
             <HomeIcon sx={{ fontSize: 19 }} />
             Dashboard
           </li>

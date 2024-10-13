@@ -14,7 +14,7 @@ const Whether = () => {
   }, []);
 
   return (
-    <div className="w-full h-auto overflow-hidden flex flex-wrap  p-1 shadow-box rounded-md bg-white">
+    <div className="w-full h-auto overflow-hidden flex flex-wrap  p-1 shadow-box rounded-sm bg-white">
       <div className="h-full min-w-[200px] flex-1 flex flex-col items-center">
         <h1 className="font-bold font-inter relative text-[5rem]">
           {weatherData.length === 0

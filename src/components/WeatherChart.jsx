@@ -29,9 +29,9 @@ const WeatherChart = () => {
     );
 
   return (
-    <div style={{ width: "100%", height: "100%" }}>
-      <ResponsiveContainer width="100%" height={380}>
-        <BarChart data={weatherData}>
+    <div  style={{ width: "100%", height: "100%" }}>
+      <ResponsiveContainer  width="100%" height={380}>
+        <BarChart style={{ cursor: 'pointer' }} data={weatherData}>
           <XAxis dataKey="date" tick={{ fontSize: 12 }} />
           <YAxis domain={[0, "dataMax + 10"]} tick={{ fontSize: 12 }} />
           <Tooltip
